@@ -11,7 +11,7 @@ const createYoutube = () => {
 
     const onYouTubeIframeAPIReady = () => {
       const player = new YT.Player('player', {
-	videoId: 'HCdmO6YFiVg', //pk
+	videoId: 'U64bOp7h5gA', //ot
   height: 600,
   width: 1000,
   playerVars:{
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      imageTargetSrc: '../../assets/targets2/ap1.mind',
+      imageTargetSrc: '../../assets/targets2/ap8.mind',
     });
     const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
 
