@@ -40,12 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
       uiLoading:"yes"
     });
     const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
-
-    const obj = new CSS3DObject(document.querySelector("#ar-div"));
     const obj2 = new CSS3DObject(document.querySelector("#border"));//
     const cssAnchor2 = mindarThree.addCSSAnchor(0);//
     cssAnchor2.group.add(obj2);//
     
+
+    const obj = new CSS3DObject(document.querySelector("#ar-div"));
     const cssAnchor = mindarThree.addCSSAnchor(0);
     cssAnchor.group.add(obj);
 
