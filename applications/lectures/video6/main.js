@@ -15,7 +15,8 @@ const createYoutube = () => {
   height: 600,
   width: 1000,
   playerVars:{
-    autoPlay: 0
+    autoPlay: 1,
+    mute: 1
   },
 	events: {
 	  onReady: () => {
@@ -35,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
       imageTargetSrc: '../../assets/targets2/ap7.mind',
+      uiScanning:"#scanning",
+      uiLoading:"yes"
     });
     const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
 

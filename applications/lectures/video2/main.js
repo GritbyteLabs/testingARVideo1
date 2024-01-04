@@ -15,7 +15,8 @@ const createYoutube = () => {
   height: 600,
   width: 1000,
   playerVars:{
-    autoPlay: 0
+    autoPlay: 1, //
+    mute: 1 // 
   },
 	events: {
 	  onReady: () => {
@@ -35,8 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
       imageTargetSrc: '../../assets/targets2/ap3.mind',
+      uiScanning:"#scanning",
+      uiLoading:"yes"
     });
     const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
+    const obj2 = new CSS3DObject(document.querySelector("#border"));//
+    const cssAnchor2 = mindarThree.addCSSAnchor(0);//
+    cssAnchor2.group.add(obj2);//
 
     const obj = new CSS3DObject(document.querySelector("#ar-div"));
     const cssAnchor = mindarThree.addCSSAnchor(0);
