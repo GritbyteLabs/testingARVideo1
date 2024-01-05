@@ -12,7 +12,7 @@ const createYoutube = () => {
     const onYouTubeIframeAPIReady = () => {
       const player = new YT.Player('player', {
 	videoId: 'ilTxDsLDyHw', //ot
-  height: 600,
+  height: 550,
   width: 1000,
   playerVars:{
    // autoPlay: 1
