@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      imageTargetSrc: '../../assets/targets2/tdpcrop1.mind',
+      imageTargetSrc: '../../assets/targets2/ap8.mind',
       uiScanning:"#scanning",
       uiLoading:"yes"
     });
