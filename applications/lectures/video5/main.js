@@ -2,6 +2,9 @@ import { CSS3DObject } from '../../libs/three.js-r132/examples/jsm/renderers/CSS
 import {loadGLTF} from "../../libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
+var flag1 = 0;
+
+
 const createYoutube = () => {
   return new Promise((resolve, reject) => {
     var tag = document.createElement('script');
@@ -15,8 +18,8 @@ const createYoutube = () => {
   height: 550,
   width: 1000,
   playerVars:{
-   // autoPlay: 1
-    //mute: 1
+
+    
   },
 	events: {
 	  onReady: () => {
@@ -29,6 +32,7 @@ const createYoutube = () => {
   });
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const start = async() => {
     const player = await createYoutube();
@@ -40,16 +44,36 @@ document.addEventListener('DOMContentLoaded', () => {
       uiLoading:"yes"
     });
     const {renderer, cssRenderer, scene, cssScene, camera} = mindarThree;
+
+    const buttondiv = new CSS3DObject(document.querySelector("#buttonDiv"));
+    const button1 = document.getElementById("button1");
+    
+
+    const cssAnchor3 = mindarThree.addCSSAnchor(0);
+    cssAnchor3.group.add(buttondiv);
+
     const obj2 = new CSS3DObject(document.querySelector("#border"));//
     const cssAnchor2 = mindarThree.addCSSAnchor(0);//
-    cssAnchor2.group.add(obj2);//
+    //cssAnchor2.group.add(obj2);//
     
     const obj = new CSS3DObject(document.querySelector("#ar-div"));
     const cssAnchor = mindarThree.addCSSAnchor(0);
-    cssAnchor.group.add(obj);
+    //cssAnchor.group.add(obj);
+
+    button1.addEventListener("click",function() {
+      cssAnchor2.group.add(obj2);
+      cssAnchor.group.add(obj);
+      flag1 = 1;
+    });
 
     cssAnchor.onTargetFound = () => {
-      player.playVideo();
+      if(flag1 == 1){
+        player.playVideo();
+        console.log("VIDEO PLAYING");
+      }
+
+      
+
     }
     cssAnchor.onTargetLost = () => {
       player.pauseVideo();
@@ -96,6 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
+
+
 
 
 
