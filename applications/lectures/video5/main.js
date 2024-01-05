@@ -15,7 +15,7 @@ const createYoutube = () => {
     const onYouTubeIframeAPIReady = () => {
       const player = new YT.Player('player', {
 	videoId: 'ilTxDsLDyHw', //ot
-  height: 550,
+  height: 500,
   width: 1000,
   playerVars:{
 
@@ -24,12 +24,15 @@ const createYoutube = () => {
 	events: {
 	  onReady: () => {
 	    resolve(player);
+      
 	  }
 	}
       });
     }
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
   });
+
+  
 }
 
 
@@ -47,36 +50,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const buttondiv = new CSS3DObject(document.querySelector("#buttonDiv"));
     const button1 = document.getElementById("button1");
+   
     
 
     const cssAnchor3 = mindarThree.addCSSAnchor(0);
     cssAnchor3.group.add(buttondiv);
 
     const obj2 = new CSS3DObject(document.querySelector("#border"));//
+    var ob2 = document.getElementById('border');
     const cssAnchor2 = mindarThree.addCSSAnchor(0);//
-    //cssAnchor2.group.add(obj2);//
+    cssAnchor2.group.add(obj2);//
+    ob2.style.opacity = 0;
+    ob2.style.pointerEvents = 'none';
     
     const obj = new CSS3DObject(document.querySelector("#ar-div"));
+    var ob = document.getElementById('ar-div');
     const cssAnchor = mindarThree.addCSSAnchor(0);
-    //cssAnchor.group.add(obj);
+    cssAnchor.group.add(obj);
+    ob.style.opacity = 0;
+    ob.style.pointerEvents = 'none';
 
     button1.addEventListener("click",function() {
-      cssAnchor2.group.add(obj2);
-      cssAnchor.group.add(obj);
+     // cssAnchor2.group.add(obj2);
+      //cssAnchor.group.add(obj);
+      ob2.style.opacity = 1;
+      ob.style.opacity = 1;
       flag1 = 1;
+      player.playVideo();
+      ob2.style.pointerEvents = 'auto';
+      ob.style.pointerEvents = 'auto';
+     
     });
 
     cssAnchor.onTargetFound = () => {
-      if(flag1 == 1){
+    
+      
+      if(flag1==1){
         player.playVideo();
-        console.log("VIDEO PLAYING");
+       
+      }else{
+        button1.style.visibility  = 'visible';
+       
       }
-
+     
       
 
     }
     cssAnchor.onTargetLost = () => {
       player.pauseVideo();
+      button1.style.visibility  = 'hidden';
     }
 
   //   const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );

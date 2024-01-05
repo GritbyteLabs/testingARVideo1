@@ -10,39 +10,54 @@
 	visibility: hidden;
       }
       #border{
-        visibility: hidden;
-        width:1020px;
-        height: 570px;
-        background: white;
-        opacity: 1;
-        font-size: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
+       visibility: hidden;
+  width: 1020px;
+  height: 520px;
+  background: white;
+  opacity: 1;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  border: 2px solid #ffd699;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
         
       }
 
-      #buttonDiv {
+      #buttonDiv button#button1 {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  border: 2px solid black; 
+  height: 200px;
+  width: 400px;
+  background: linear-gradient(to right, #ff7e5f, #feb47b); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  border-radius: 10px;
+  font-size: 32px; 
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, font-size 0.2s ease-in-out; 
 
-        visibility: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        
+  
+  &:active {
+    transform: scale(0.95); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 36px; 
+  }
 
-        
-      }
-      button1 {
-       
-        justify-content: center;
-        align-items: center;
-        color : yellow;
-        border : 1% solid black;
-        height : 2000px;
-        width: 4000px;
-      }
+  
+  &:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+    
       #player{
         
       }
