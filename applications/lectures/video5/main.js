@@ -15,7 +15,7 @@ const createYoutube = () => {
   height: 600,
   width: 1000,
   playerVars:{
-    autoPlay: 1
+   // autoPlay: 1
     //mute: 1
   },
 	events: {
